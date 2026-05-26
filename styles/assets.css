@@ -1,0 +1,7 @@
+.dish_content {
+    display: flex;
+    justify-content: space-between;
+    width: 720px;
+    height: 145px;
+    background-color: antiquewhite;
+}
