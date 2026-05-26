@@ -1,7 +1,38 @@
+h3 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0 0 8px 0;
+    line-height: 1;
+}
+
 .dish_content {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
     width: 720px;
     height: 145px;
+    border-radius: 12px;
     background-color: antiquewhite;
+}
+
+.dish_img_text {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.dish_img {
+    object-fit: cover;
+    height: 120px;
+    width: 210px;
+    border-radius: 12px;
+}
+
+.dish_price_cart {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
 }
