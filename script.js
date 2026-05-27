@@ -135,6 +135,11 @@ function removeOneItemFromCart(indexDish) {
     renderCart();
 }
 
+function deleteFromCart(indexDish) {
+    dishes[indexDish].amount = 0;
+    renderCart();
+}
+
 function getDishTemplate(indexDish) {
     return `<div class="dish_content">
             <div class="dish_img_text">
@@ -173,12 +178,12 @@ function getCartTemplate(indexDish) {
                 <p>${dishes[indexDish].amount} x ${dishes[indexDish].name}</p>
                 <div class="cart_item_footer">
                     <div class="cart_item_quantity">
-                        <button>delete</button>
-                        <button>Minus</button>
+                        <button onclick="deleteFromCart(${indexDish})">delete</button>
+                        <button onclick="removeOneItemFromCart(${indexDish})">Minus</button>
                         <p>${dishes[indexDish].amount}</p>
-                        <button>Plus</button>
+                        <button onclick="addOneItemToCart(${indexDish})">Plus</button>
                     </div>
-                    <p class="cart_item_price">Preis</p>
+                    <p class="cart_item_price">Preis: calculatePrice(${indexDish})</p>
                 </div>
             </div>`
 }
@@ -204,6 +209,6 @@ function getCartTotalTemplate() {
                 </div>`
 }
 
-function calculateCartSubtotal() {
+function calculatePrice(indexDish) {
     let cartSubtotal = dishes[indexDish].amount * dishes[indexDish].price
 }
