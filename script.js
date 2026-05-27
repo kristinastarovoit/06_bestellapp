@@ -119,10 +119,8 @@ function renderCategoryDishes(contentId, categoryName) {
 }
 
 function addToCart(indexDish) {
-    dishes[indexDish].amount = dishes[indexDish].amount +1;
-    return dishes[indexDish].amount;
+    dishes[indexDish].amount = dishes[indexDish].amount + 1;
     console.log(dishes[indexDish].amount);
-    
 }
 
 function getDishTemplate(indexDish) {
