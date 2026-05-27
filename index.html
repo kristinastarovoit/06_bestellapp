@@ -14,7 +14,7 @@
     <script src="script/template.js"></script>
 </head>
 
-<body>
+<body onload="init()">
     <nav>
         <img>
     </nav>
@@ -36,27 +36,17 @@
             <img>
             <h2>Burger & Sandwiches</h2>
         </div>
-        <div class="dish_content" id="burger_content">
-            <div class="dish_img_text">
-                <img class="dish_img" src="assets/img/burger_veggie.jpg">
-                <div class="dish_text">
-                    <h3>Titel</h3>
-                    <p>Beschreibung</p>
-                </div>
-            </div>
-            <div class="dish_price_cart">
-                <p class="dish_price">Preis</p>
-                <button>Add to basket</button>
-            </div>
-        </div>
+        <div id="burger_content"></div>
         <div>
             <img>
             <h2>Pizza <span>(30cm)</span></h2>
         </div>
+        <div id="pizza_content"></div>
         <div>
             <img>
             <h2>Salad</h2>
         </div>
+        <div id="salad_content"></div>
     </main>
 
 </body>
