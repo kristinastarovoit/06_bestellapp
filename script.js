@@ -100,6 +100,7 @@ let dishes = [
 
 function init() {
     renderallDishes();
+    renderCart();
 }
 
 function renderallDishes() {
@@ -118,9 +119,20 @@ function renderCategoryDishes(contentId, categoryName) {
     }
 }
 
-function addToCart(indexDish) {
-    dishes[indexDish].amount = dishes[indexDish].amount + 1;
+function addOneItemToCart(indexDish) {
+    dishes[indexDish].amount++;
     console.log(dishes[indexDish].amount);
+    renderCart();
+    // RENDER CART
+}
+
+function removeOneItemFromCart(indexDish) {
+    dishes[indexDish].amount--;
+    if (dishes[indexDish].amount < 0) {
+        dishes[indexDish].amount = 0;
+    }
+    console.log(dishes[indexDish].amount);
+    renderCart();
 }
 
 function getDishTemplate(indexDish) {
@@ -133,8 +145,65 @@ function getDishTemplate(indexDish) {
                 </div>
             </div>
             <div class="dish_price_cart">
-                <p class="dish_price">${dishes[indexDish].price.toLocaleString("de-DE", {style: "currency", currency: "EUR"})}</p>
-                <button onclick="addToCart(${indexDish})">Add to basket</button>
+                <p class="dish_price">${dishes[indexDish].price.toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</p>
+                <button onclick="addOneItemToCart(${indexDish})">Add to basket</button>
             </div>
+            </div>
+            
+            <div>
+            <button onclick="removeOneItemFromCart(${indexDish})">minus</button>
+            <button onclick="addOneItemToCart(${indexDish})">plus</button>
+        </div>`
+}
+
+function renderCart() {
+    const cartRef = document.getElementById('cart_item_content');
+    cartRef.innerHTML = '';
+    for (let indexDish = 0; indexDish < dishes.length; indexDish++) {
+        if (dishes[indexDish].amount > 0) {
+            cartRef.innerHTML += getCartTemplate(indexDish);
+        }
+    }
+    renderCartTotal();
+}
+
+function getCartTemplate(indexDish) {
+    return `<p class="cart_heading">Your Basket</p>
+            <div class="cart_item_content" id="cart_item_content">
+                <p>${dishes[indexDish].amount} x ${dishes[indexDish].name}</p>
+                <div class="cart_item_footer">
+                    <div class="cart_item_quantity">
+                        <button>delete</button>
+                        <button>Minus</button>
+                        <p>${dishes[indexDish].amount}</p>
+                        <button>Plus</button>
+                    </div>
+                    <p class="cart_item_price">Preis</p>
+                </div>
             </div>`
+}
+
+function renderCartTotal() {
+    const cartTotalRef = document.getElementById('cart_total_content');
+    cartTotalRef.innerHTML = getCartTotalTemplate();
+}
+
+function getCartTotalTemplate() {
+    return `    <div class="price_row">
+                    <p>Subtotal</p>
+                    <p>Preis</p>
+                </div>
+                <div class="price_row">
+                    <p>Delivery Fee</p>
+                    <p>Preis</p>
+                </div>
+                <br>
+                <div class="price_row price_total">
+                    <p>Total</p>
+                    <p>Preis</p>
+                </div>`
+}
+
+function calculateCartSubtotal() {
+    let cartSubtotal = dishes[indexDish].amount * dishes[indexDish].price
 }

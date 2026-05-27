@@ -6,7 +6,7 @@
     width: 720px;
     height: 145px;
     border-radius: 12px;
-    background-color: antiquewhite;
+    background-color: var(--accent-color-light-orange);
 }
 
 .dish_img_text {
@@ -28,4 +28,49 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+}
+
+.cart_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 440px;
+    height: 840px;
+    background-color: var(--darkgrey);
+    padding: 60px 30px;
+    color: var(--white);
+}
+
+.cart_heading {
+    color: var(--accent-color-light-orange);
+}
+
+.cart_item_content {
+    width: 100%;
+    color: var(--darkgrey);
+    background-color: var(--accent-color-light-orange);
+}
+
+.cart_item_footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart_item_price {
+    margin-left: 0;
+}
+
+.cart_item_quantity {
+    display: flex;
+}
+
+.cart_total_content {
+    width: 100%;
+}
+
+.price_row {
+    background-color: red;
+    display: flex;
+    justify-content: space-between;
 }
