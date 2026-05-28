@@ -123,7 +123,6 @@ function addOneItemToCart(indexDish) {
     dishes[indexDish].amount++;
     console.log(dishes[indexDish].amount);
     renderCart();
-    // RENDER CART
 }
 
 function removeOneItemFromCart(indexDish) {
@@ -146,11 +145,11 @@ function getDishTemplate(indexDish) {
                 <img class="dish_img" src="assets/img/${dishes[indexDish].src}">
                 <div class="dish_text">
                     <h3>${dishes[indexDish].name}</h3>
-                    <p>${dishes[indexDish].description}</p>
+                    <p class="dish_description">${dishes[indexDish].description}</p>
                 </div>
             </div>
             <div class="dish_price_cart">
-                <p class="dish_price">${dishes[indexDish].price.toLocaleString("de-DE", { style: "currency", currency: "EUR" })}</p>
+                <p class="dish_price">${formatToCurrency(dishes[indexDish].price)}</p>
                 <button onclick="addOneItemToCart(${indexDish})">Add to basket</button>
             </div>
             </div>
@@ -167,6 +166,7 @@ function renderCart() {
     for (let indexDish = 0; indexDish < dishes.length; indexDish++) {
         if (dishes[indexDish].amount > 0) {
             cartRef.innerHTML += getCartTemplate(indexDish);
+            calculateItemSum(indexDish);
         }
     }
     renderCartTotal();
@@ -183,7 +183,7 @@ function getCartTemplate(indexDish) {
                         <p>${dishes[indexDish].amount}</p>
                         <button onclick="addOneItemToCart(${indexDish})">Plus</button>
                     </div>
-                    <p class="cart_item_price">Preis: calculatePrice(${indexDish})</p>
+                    <p class="cart_item_price" id="calculated_price_${indexDish}"></p>
                 </div>
             </div>`
 }
@@ -191,24 +191,51 @@ function getCartTemplate(indexDish) {
 function renderCartTotal() {
     const cartTotalRef = document.getElementById('cart_total_content');
     cartTotalRef.innerHTML = getCartTotalTemplate();
+    document.getElementById('subtotal').innerText = formatToCurrency(calculateSubtotal());
+    document.getElementById('total').innerText = formatToCurrency(calculateTotal());
 }
 
 function getCartTotalTemplate() {
-    return `    <div class="price_row">
-                    <p>Subtotal</p>
-                    <p>Preis</p>
-                </div>
-                <div class="price_row">
-                    <p>Delivery Fee</p>
-                    <p>Preis</p>
-                </div>
-                <br>
-                <div class="price_row price_total">
-                    <p>Total</p>
-                    <p>Preis</p>
-                </div>`
+    return `<div class="price_row">
+                <p>Subtotal</p>
+                <p id="subtotal">Preis</p>
+            </div>
+            <div class="price_row">
+                <p>Delivery Fee</p>
+                <p>4,99 €</p>
+            </div>
+            <br>
+            <div class="price_row price_total">
+                <p>Total</p>
+                <p id="total"></p>
+            </div>`
 }
 
-function calculatePrice(indexDish) {
-    let cartSubtotal = dishes[indexDish].amount * dishes[indexDish].price
+function calculateItemSum(indexDish) {
+    let priceItemRef = document.getElementById(`calculated_price_${indexDish}`)
+    let newCalculatedPrice = dishes[indexDish].amount * dishes[indexDish].price;
+    priceItemRef.innerText = formatToCurrency(newCalculatedPrice)
+    // newCalculatedPrice.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
+}
+
+function calculateSubtotal() {
+    let subtotal = 0;
+    for (let indexDish = 0; indexDish < dishes.length; indexDish++) {
+        subtotal += (dishes[indexDish].amount * dishes[indexDish].price);
+    }
+    console.log(subtotal);
+    return subtotal;
+}
+
+function calculateTotal() {
+    let totalSum = calculateSubtotal() + 4.99;
+    console.log(totalSum);
+    return totalSum;
+}
+
+function formatToCurrency(price) {
+    return price.toLocaleString("de-DE", {
+        style: "currency",
+        currency: "EUR"
+    });
 }
