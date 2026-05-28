@@ -1,3 +1,21 @@
+.main_content {
+    width: calc(100% - 440px);
+}
+
+.orange_beam {
+    background-color: var(--accent-color-orange);
+}
+
+.pizza_size {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--white);
+}
+
+.dish_category_content {
+    padding: 40px 130px;
+}
+
 .dish_content {
     display: flex;
     justify-content: space-between;
@@ -51,6 +69,8 @@
     background-color: var(--darkgrey);
     padding: 60px 30px;
     color: var(--white);
+    position: sticky;
+    top: 0;
 }
 
 .cart_heading {

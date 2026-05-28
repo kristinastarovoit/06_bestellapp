@@ -7,6 +7,11 @@
     color: var(--darkgrey);
 }
 
+h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+}
+
 h3 {
     font-weight: 600;
     font-size: 1.5rem;
@@ -17,4 +22,17 @@ h3 {
 button {
     font-family: 'Palanquin';
     font-weight: 600;
+}
+
+main {
+    display: flex;
+    width: 100%;
+}
+
+nav {
+    background-color: var(--accent-color-orange);
+    height: 130px;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 120px;
 }

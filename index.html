@@ -15,10 +15,10 @@
 </head>
 
 <body onload="init()">
-    <nav>
-        <img>
-    </nav>
     <header>
+        <nav>
+            <img src="assets/icons/bestellapp_logo.svg">
+        </nav>
         <img>
         <div>
             <h1>BurgerHouse</h1>
@@ -32,28 +32,31 @@
     </header>
 
     <main>
-        <div>
-            <img>
-            <h2>Burger & Sandwiches</h2>
-        </div>
-        <div id="burger_content"></div>
-        <div>
-            <img>
-            <h2>Pizza <span>(30cm)</span></h2>
-        </div>
-        <div id="pizza_content"></div>
-        <div>
-            <img>
-            <h2>Salad</h2>
-        </div>
-        <div id="salad_content"></div>
-
-        <div class="cart_wrapper" id="cart_wrapper">
-            <p class="cart_heading">Your Basket</p>
-            <div class="cart_item_content" id="cart_item_content"></div>
-            <div class="cart_total_content" id="cart_total_content"></div>
-
-                <!-- <p class="cart_heading">Your Basket</p>
+        <section class="main_content">
+            <div class="orange_beam">
+                <img>
+                <h2>Burger & Sandwiches</h2>
+            </div>
+            <div id="burger_content" class="dish_category_content"></div>
+            <div class="orange_beam">
+                <img>
+                <h2>Pizza <span class="pizza_size">(30cm)</span></h2>
+            </div>
+            <div id="pizza_content" class="dish_category_content"></div>
+            <div class="orange_beam">
+                <img>
+                <h2>Salad</h2>
+            </div>
+            <div id="salad_content" class="dish_category_content"></div>
+        </section>
+        <section class="cart_content">
+            <div class="cart_wrapper" id="cart_wrapper">
+                <p class="cart_heading">Your Basket</p>
+                <div class="cart_item_content" id="cart_item_content"></div>
+                <div class="cart_total_content" id="cart_total_content"></div>
+            </div>
+        </section>
+        <!-- <p class="cart_heading">Your Basket</p>
             <div class="cart_item_content" id="cart_item_content">
                 <p>Menge x Titel</p>
                 <div class="cart_item_footer">
@@ -82,7 +85,6 @@
                 </div>
             </div>
             <button class="buy_now_button">Buy now</button> -->
-            </div>
     </main>
 
 </body>
