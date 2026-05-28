@@ -191,8 +191,10 @@ function getCartTemplate(indexDish) {
 function renderCartTotal() {
     const cartTotalRef = document.getElementById('cart_total_content');
     cartTotalRef.innerHTML = getCartTotalTemplate();
-    document.getElementById('subtotal').innerText = formatToCurrency(calculateSubtotal());
-    document.getElementById('total').innerText = formatToCurrency(calculateTotal());
+    const subtotalRef = document.getElementById('subtotal');
+    const totalRef = document.getElementById('total');
+    subtotalRef.innerText = formatToCurrency(calculateSubtotal());
+    totalRef.innerText = formatToCurrency(calculateTotal());
 }
 
 function getCartTotalTemplate() {
@@ -212,10 +214,9 @@ function getCartTotalTemplate() {
 }
 
 function calculateItemSum(indexDish) {
-    let priceItemRef = document.getElementById(`calculated_price_${indexDish}`)
+    let priceItemRef = document.getElementById(`calculated_price_${indexDish}`);
     let newCalculatedPrice = dishes[indexDish].amount * dishes[indexDish].price;
     priceItemRef.innerText = formatToCurrency(newCalculatedPrice)
-    // newCalculatedPrice.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 }
 
 function calculateSubtotal() {

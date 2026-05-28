@@ -22,6 +22,17 @@
     border-radius: 12px;
 }
 
+.dish_description {
+    max-width: 35ch;
+    font-weight: 500;
+    line-height: 120%;
+}
+
+.dish_price {
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
 .dish_price_cart {
     height: 100%;
     display: flex;

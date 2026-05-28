@@ -3,6 +3,8 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-family: 'Palanquin', sans-serif;
+    line-height: 1;
+    color: var(--darkgrey);
 }
 
 h3 {
