@@ -34,7 +34,7 @@ main {
     display: flex;
     width: 100%;
     color: var(--darkgrey);
-    padding: 60px 0 100px 0;
+    padding: 30px 0 100px 0;
 }
 
 nav {
@@ -138,4 +138,29 @@ footer {
 
 .d_none {
     display: none;
+}
+
+.category_slider_bar {
+    padding: 0 120px 70px 120px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.category_slider_bar>a {
+    text-decoration: none;
+    font-family: 'Palanquin';
+    font-weight: 700;
+    font-size: 2rem;
+    background-color: var(--accent-color-orange);
+    padding: 16px 20px 20px 20px;
+    border-radius: 40px;
+    line-height: 1;
+    color: var(--white);
+    transition: all ease-in-out 255ms;
+}
+
+.category_slider_bar>a:hover {
+    background-color: var(--accent-color-light-orange);
+    color: var(--accent-color-orange);
 }
