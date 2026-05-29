@@ -22,7 +22,22 @@ function renderCategoryDishes(contentId, categoryName) {
 
 function addOneItemToCart(indexDish) {
     dishes[indexDish].amount++;
+    checkIfCartIsEmpty();
+    renderCart();
+}
+
+function removeOneItemFromCart(indexDish) {
+    dishes[indexDish].amount--;
+    if (dishes[indexDish].amount < 0) {
+        dishes[indexDish].amount = 0;
+    }
     console.log(dishes[indexDish].amount);
+    checkIfCartIsEmpty();
+    renderCart();
+}
+
+function deleteFromCart(indexDish) {
+    dishes[indexDish].amount = 0;
     checkIfCartIsEmpty();
     renderCart();
 }
@@ -42,22 +57,6 @@ function checkIfCartIsEmpty() {
         cartTotalRef.classList.remove('d_none');
         cartEmptyText.classList.add('d_none');
     }
-}
-
-function removeOneItemFromCart(indexDish) {
-    dishes[indexDish].amount--;
-    if (dishes[indexDish].amount < 0) {
-        dishes[indexDish].amount = 0;
-    }
-    console.log(dishes[indexDish].amount);
-    checkIfCartIsEmpty();
-    renderCart();
-}
-
-function deleteFromCart(indexDish) {
-    dishes[indexDish].amount = 0;
-    checkIfCartIsEmpty();
-    renderCart();
 }
 
 function renderCart() {
@@ -92,13 +91,11 @@ function calculateSubtotal() {
     for (let indexDish = 0; indexDish < dishes.length; indexDish++) {
         subtotal += (dishes[indexDish].amount * dishes[indexDish].price);
     }
-    console.log(subtotal);
     return subtotal;
 }
 
 function calculateTotal() {
     let totalSum = calculateSubtotal() + 4.99;
-    console.log(totalSum);
     return totalSum;
 }
 
