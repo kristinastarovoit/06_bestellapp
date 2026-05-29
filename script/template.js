@@ -13,8 +13,6 @@ function getDishTemplate(indexDish) {
             </div>
             </div>
             <div>
-            <button onclick="removeOneItemFromCart(${indexDish})">minus</button>
-            <button onclick="addOneItemToCart(${indexDish})">plus</button>
         </div>`
 }
 
