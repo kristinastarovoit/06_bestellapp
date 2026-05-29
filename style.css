@@ -3,8 +3,12 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
     font-family: 'Palanquin', sans-serif;
-    line-height: 1;
-    color: var(--darkgrey);
+}
+
+h1 {
+    font-family: 'Palanquin Dark';
+    font-weight: 900;
+    font-size: 3rem;
 }
 
 h2 {
@@ -22,11 +26,14 @@ h3 {
 button {
     font-family: 'Palanquin';
     font-weight: 600;
+    cursor: pointer;
+    line-height: 1;
 }
 
 main {
     display: flex;
     width: 100%;
+    color: var(--darkgrey);
 }
 
 nav {
@@ -34,7 +41,8 @@ nav {
     height: 130px;
     display: flex;
     align-items: center;
-    padding: 0 0 0 120px;
+    flex-shrink: 0;
+    padding: 0 120px;
     width: 100%;
 }
 
@@ -44,8 +52,10 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--darkgrey);
 }
-header > img {
+
+header>img {
     width: 100%;
     height: 500px;
     object-fit: cover;
@@ -70,13 +80,37 @@ header > img {
 
 .restaurant_name_rating {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+}
+
+.orange_font {
+    color: var(--accent-color-orange);
+    font-family: 'Palanquin Dark';
 }
 
 .restaurant_rating {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 5px;
     background-color: var(--accent-color-light-orange);
+    font-size: 1.25rem;
+    padding: 0 5px;
+    line-height: 1;
+    height: 32px;
+    border-radius: 4px;
+}
+
+.restaurant_number_rating {
+    font-weight: 600;
+}
+
+.restaurant_description {
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1;
 }
 
 .rating_star {

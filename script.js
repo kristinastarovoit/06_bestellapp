@@ -150,10 +150,9 @@ function getDishTemplate(indexDish) {
             </div>
             <div class="dish_price_cart">
                 <p class="dish_price">${formatToCurrency(dishes[indexDish].price)}</p>
-                <button onclick="addOneItemToCart(${indexDish})">Add to basket</button>
+                <button class="basket_button" onclick="addOneItemToCart(${indexDish})">Add to basket</button>
             </div>
             </div>
-            
             <div>
             <button onclick="removeOneItemFromCart(${indexDish})">minus</button>
             <button onclick="addOneItemToCart(${indexDish})">plus</button>
@@ -173,9 +172,7 @@ function renderCart() {
 }
 
 function getCartTemplate(indexDish) {
-    return `<p class="cart_heading">Your Basket</p>
-            <div class="cart_item_content" id="cart_item_content">
-                <p>${dishes[indexDish].amount} x ${dishes[indexDish].name}</p>
+    return `<p>${dishes[indexDish].amount} x ${dishes[indexDish].name}</p>
                 <div class="cart_item_footer">
                     <div class="cart_item_quantity">
                         <button onclick="deleteFromCart(${indexDish})">delete</button>
@@ -184,8 +181,7 @@ function getCartTemplate(indexDish) {
                         <button onclick="addOneItemToCart(${indexDish})">Plus</button>
                     </div>
                     <p class="cart_item_price" id="calculated_price_${indexDish}"></p>
-                </div>
-            </div>`
+                </div>`
 }
 
 function renderCartTotal() {
@@ -206,11 +202,12 @@ function getCartTotalTemplate() {
                 <p>Delivery Fee</p>
                 <p>4,99 €</p>
             </div>
-            <br>
+            <hr>
             <div class="price_row price_total">
                 <p>Total</p>
                 <p id="total"></p>
-            </div>`
+            </div>
+            <button class="buy_button">Buy now (${formatToCurrency(calculateTotal())})</button>`
 }
 
 function calculateItemSum(indexDish) {

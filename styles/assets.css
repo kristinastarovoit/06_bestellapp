@@ -49,10 +49,21 @@
 .dish_price {
     font-weight: 600;
     font-size: 1.5rem;
+    line-height: 1;
+}
+
+.basket_button {
+    background-color: var(--white);
+    border-radius: 20px;
+    border: transparent;
+    padding: 5px 8px;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 .dish_price_cart {
     height: 100%;
+    padding-bottom: 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -71,16 +82,22 @@
     color: var(--white);
     position: sticky;
     top: 0;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
 
 .cart_heading {
     color: var(--accent-color-light-orange);
+    font-size: 2rem;
+    font-weight: 700;
 }
 
 .cart_item_content {
     width: 100%;
     color: var(--darkgrey);
     background-color: var(--accent-color-light-orange);
+    border-radius: 20px;
+    margin: 10px 0;
 }
 
 .cart_item_footer {
@@ -98,10 +115,36 @@
 
 .cart_total_content {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .price_row {
-    background-color: red;
+    color: var(--white);
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: 1.25rem;
+}
+
+hr {
+    border: 2px solid var(--white);
+    width: 100%;
+    margin: 20px 0;
+}
+
+.buy_button {
+    background-color: var(--accent-color-orange);
+    border: transparent;
+    border-radius: 60px;
+    padding: 13px;
+    margin-top: 30px;
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: 700;
+    width: 320px;
 }
