@@ -22,8 +22,23 @@ function renderCategoryDishes(contentId, categoryName) {
 
 function addOneItemToCart(indexDish) {
     dishes[indexDish].amount++;
+    toggleCartButtonAmount(indexDish);
     checkIfCartIsEmpty();
     renderCart();
+}
+
+function toggleCartButtonAmount(indexDish) {
+    let cartButton = document.getElementById(`basket_button_${indexDish}`);
+    let dishText = document.getElementById(`dish_description_${indexDish}`);
+    if (dishes[indexDish].amount == 0) {
+        dishText.classList.remove('move_dish_text');
+        cartButton.classList.remove('orange_font');
+        cartButton.innerText = `Add to Basket`;
+    } else {
+        dishText.classList.add('move_dish_text');
+        cartButton.classList.add('orange_font');
+        cartButton.innerText = `Added ${dishes[indexDish].amount}`;
+    }
 }
 
 function removeOneItemFromCart(indexDish) {
@@ -32,12 +47,14 @@ function removeOneItemFromCart(indexDish) {
         dishes[indexDish].amount = 0;
     }
     console.log(dishes[indexDish].amount);
+    toggleCartButtonAmount(indexDish);
     checkIfCartIsEmpty();
     renderCart();
 }
 
 function deleteFromCart(indexDish) {
     dishes[indexDish].amount = 0;
+    toggleCartButtonAmount(indexDish);
     checkIfCartIsEmpty();
     renderCart();
 }
