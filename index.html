@@ -38,17 +38,17 @@
     <main>
         <section class="main_content">
             <div class="orange_beam">
-                <img>
+                <img class="category_icon" src="assets/icons/burger_icon.png" alt="Burger Icon">
                 <h2>Burger & Sandwiches</h2>
             </div>
             <div id="burger_content" class="dish_category_content"></div>
             <div class="orange_beam">
-                <img>
+                <img class="category_icon" src="assets/icons/pizza_icon.png" alt="Pizza Icon">
                 <h2>Pizza <span class="pizza_size">(30cm)</span></h2>
             </div>
             <div id="pizza_content" class="dish_category_content"></div>
             <div class="orange_beam">
-                <img>
+                <img class="category_icon" src="assets/icons/salad_icon.png" alt="Salat Icon">
                 <h2>Salad</h2>
             </div>
             <div id="salad_content" class="dish_category_content"></div>
@@ -56,40 +56,23 @@
         <section class="cart_content">
             <div class="cart_wrapper" id="cart_wrapper">
                 <p class="cart_heading">Your Basket</p>
+                <div class="empty_cart" id="empty_cart">
+                    <p class="empty_cart_text">Nothing here yet. <br> Go ahead and choose something delicious!</p>
+                    <img src="assets/icons/basket.svg" alt="Einkaufswagen">
+                </div>
                 <div class="cart_item_content" id="cart_item_content"></div>
                 <div class="cart_total_content" id="cart_total_content"></div>
             </div>
         </section>
-        <!-- <p class="cart_heading">Your Basket</p>
-            <div class="cart_item_content" id="cart_item_content">
-                <p>Menge x Titel</p>
-                <div class="cart_item_footer">
-                    <div class="cart_item_quantity">
-                        <button>delete</button>
-                        <button>Minus</button>
-                        <p>Item Menge</p>
-                        <button>Plus</button>
-                    </div>
-                    <p class="cart_item_price">Preis</p>
-                </div>
-            </div>
-            <div class="cart_total_content">
-                <div class="price_row">
-                    <p>Subtotal</p>
-                    <p>Preis</p>
-                </div>
-                <div class="price_row">
-                    <p>Delivery Fee</p>
-                    <p>Preis</p>
-                </div>
-                <br>
-                <div class="price_row price_total">
-                    <p>Total</p>
-                    <p>Preis</p>
-                </div>
-            </div>
-            <button class="buy_now_button">Buy now</button> -->
     </main>
+    <footer>
+        <div class="footer_copyright">
+            <img src="assets/icons/copyright.svg">
+            <p>2025 BurgerHouse</p>
+        </div>
+        <a>Imprint</a>
+        <a>Cookie Preferences</a>
+    </footer>
 
 </body>
 

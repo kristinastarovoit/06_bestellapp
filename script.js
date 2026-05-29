@@ -1,106 +1,7 @@
-let dishes = [
-    {
-        "name": "Pizza Margherita",
-        "price": 11.90,
-        "description": "Tomato Sauce, Mozzarella",
-        "category": "pizza",
-        "src": "pizza_margherita.jpg",
-        "amount": 0
-    },
-    {
-        "name": "Pizza Chorizo",
-        "price": 13.90,
-        "description": "Tomato slices, Mozzarella, Chorizo",
-        "category": "pizza",
-        "src": "pizza_chorizo.jpg",
-        "amount": 0
-    },
-    {
-        "name": "Pizza Funghi",
-        "price": 12.90,
-        "description": "Red onion, Olives, Button Mushrooms, Mozzarella",
-        "category": "pizza",
-        "src": "pizza_funghi.jpg",
-        "amount": 0
-    },
-    {
-        "name": "Quattro Formaggi with Chicken",
-        "price": 15.90,
-        "description": "Chicken, Mozzarella, Gorgonzola, Fontina,  Parmigiano Reggiano",
-        "category": "pizza",
-        "src": "pizza_quattro.jpg",
-        "amount": 0
-    },
-    {
-        "name": "Warm beef arugula salad",
-        "price": 16.90,
-        "description": "Beef, Arugula, Field salad, Greek feta, Cherry tomatoes, Sun-dried Tomatoes, Balsamic-vinegar dressing",
-        "category": "salad",
-        "src": "salad_arugula.jpg",
-        "amount": 0
-    },
-    {
-        "name": "Mini green Salad",
-        "price": 7.90,
-        "description": "Green salad, Cucumber, Carrots, Parsley, Radishes ",
-        "category": "salad",
-        "src": "salad_minigreen.jpg",
-        "amount": 0
-    },
-    {
-        "name": "Green Salad with sea food",
-        "price": 16.90,
-        "description": "Mixed greens, Cherry tomatoes, Red onion, Mussels, Squid rings, Shrimp, Dijon mustard-lemon dressing with dill",
-        "category": "salad",
-        "src": "salad_seafood.jpg",
-        "amount": 0
-    },
-    {
-        "name": "Vegan green salad with tofu",
-        "price": 14.90,
-        "description": "Green salad, Cherry tomatoes, Cucumber, Baby spinach, Edamame, Radishes, Bittercress, Tofu, Peanuts",
-        "category": "salad",
-        "src": "salad_tofu.jpg",
-        "amount": 0
-    },
-    {
-        "name": "Veggie mushroom black burger",
-        "price": 16.90,
-        "description": "Mixed green salad, Tomatoes, Edamame, Mushrooms",
-        "category": "burger",
-        "src": "burger_veggie.jpg",
-        "amount": 0
-    },
-    {
-        "name": "All meat burger",
-        "price": 15.90,
-        "description": "Beef, Bacon, Dill pickles, Smoked cheese, Ketchup, BBQ souse",
-        "category": "burger",
-        "src": "burger_allmeat.jpg",
-        "amount": 0
-    },
-    {
-        "name": "Beef red burger",
-        "price": 14.90,
-        "description": "Beef, Cheese, Tomatoes, Lettuce, Onion",
-        "category": "burger",
-        "src": "burger_red.jpg",
-        "amount": 0
-    },
-    {
-        "name": "Big chicken burger",
-        "price": 15.90,
-        "description": "Chicken, Cheese, Tomatoes, Lettuce, Onion, Bell pepper",
-        "category": "burger",
-        "src": "burger_chicken.jpg",
-        "amount": 0
-    },
-
-]
-
 function init() {
     renderallDishes();
     renderCart();
+    checkIfCartIsEmpty();
 }
 
 function renderallDishes() {
@@ -122,7 +23,25 @@ function renderCategoryDishes(contentId, categoryName) {
 function addOneItemToCart(indexDish) {
     dishes[indexDish].amount++;
     console.log(dishes[indexDish].amount);
+    checkIfCartIsEmpty();
     renderCart();
+}
+
+function isAmountZero(element) {
+    return element.amount === 0;
+}
+
+function checkIfCartIsEmpty() {
+    const cartTotalRef = document.getElementById('cart_total_content');
+    const cartEmptyText = document.getElementById('empty_cart');
+    if (dishes.every(isAmountZero) == true) {
+        cartTotalRef.classList.add('d_none');
+        cartEmptyText.classList.remove('d_none');
+    }
+    else {
+        cartTotalRef.classList.remove('d_none');
+        cartEmptyText.classList.add('d_none');
+    }
 }
 
 function removeOneItemFromCart(indexDish) {
@@ -131,32 +50,14 @@ function removeOneItemFromCart(indexDish) {
         dishes[indexDish].amount = 0;
     }
     console.log(dishes[indexDish].amount);
+    checkIfCartIsEmpty();
     renderCart();
 }
 
 function deleteFromCart(indexDish) {
     dishes[indexDish].amount = 0;
+    checkIfCartIsEmpty();
     renderCart();
-}
-
-function getDishTemplate(indexDish) {
-    return `<div class="dish_content">
-            <div class="dish_img_text">
-                <img class="dish_img" src="assets/img/${dishes[indexDish].src}">
-                <div class="dish_text">
-                    <h3>${dishes[indexDish].name}</h3>
-                    <p class="dish_description">${dishes[indexDish].description}</p>
-                </div>
-            </div>
-            <div class="dish_price_cart">
-                <p class="dish_price">${formatToCurrency(dishes[indexDish].price)}</p>
-                <button class="basket_button" onclick="addOneItemToCart(${indexDish})">Add to basket</button>
-            </div>
-            </div>
-            <div>
-            <button onclick="removeOneItemFromCart(${indexDish})">minus</button>
-            <button onclick="addOneItemToCart(${indexDish})">plus</button>
-        </div>`
 }
 
 function renderCart() {
@@ -171,19 +72,6 @@ function renderCart() {
     renderCartTotal();
 }
 
-function getCartTemplate(indexDish) {
-    return `<p>${dishes[indexDish].amount} x ${dishes[indexDish].name}</p>
-                <div class="cart_item_footer">
-                    <div class="cart_item_quantity">
-                        <button onclick="deleteFromCart(${indexDish})">delete</button>
-                        <button onclick="removeOneItemFromCart(${indexDish})">Minus</button>
-                        <p>${dishes[indexDish].amount}</p>
-                        <button onclick="addOneItemToCart(${indexDish})">Plus</button>
-                    </div>
-                    <p class="cart_item_price" id="calculated_price_${indexDish}"></p>
-                </div>`
-}
-
 function renderCartTotal() {
     const cartTotalRef = document.getElementById('cart_total_content');
     cartTotalRef.innerHTML = getCartTotalTemplate();
@@ -191,23 +79,6 @@ function renderCartTotal() {
     const totalRef = document.getElementById('total');
     subtotalRef.innerText = formatToCurrency(calculateSubtotal());
     totalRef.innerText = formatToCurrency(calculateTotal());
-}
-
-function getCartTotalTemplate() {
-    return `<div class="price_row">
-                <p>Subtotal</p>
-                <p id="subtotal">Preis</p>
-            </div>
-            <div class="price_row">
-                <p>Delivery Fee</p>
-                <p>4,99 €</p>
-            </div>
-            <hr>
-            <div class="price_row price_total">
-                <p>Total</p>
-                <p id="total"></p>
-            </div>
-            <button class="buy_button">Buy now (${formatToCurrency(calculateTotal())})</button>`
 }
 
 function calculateItemSum(indexDish) {

@@ -1,10 +1,22 @@
 .main_content {
     width: calc(100% - 440px);
+    padding-bottom: 100px;
 }
 
 .orange_beam {
     background-color: var(--accent-color-orange);
+    display: flex;
+    height: 60px;
+    align-items: center;
+    gap: 30px;
 }
+
+.category_icon {
+    height: 90px;
+    width: auto;
+    padding-left: 120px;
+}
+
 
 .pizza_size {
     font-size: 2.5rem;
@@ -92,6 +104,21 @@
     font-weight: 700;
 }
 
+.empty_cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+}
+
+.empty_cart_text {
+    font-size: 1.5rem;
+    color: var(--accent-color-light-orange);
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2;
+}
+
 .cart_item_content {
     width: 100%;
     color: var(--darkgrey);
@@ -147,4 +174,8 @@ hr {
     font-size: 2rem;
     font-weight: 700;
     width: 320px;
+}
+
+.d_none {
+    display: none;
 }
