@@ -1,6 +1,7 @@
 :root {
     --accent-color-orange: rgb(231, 108, 31);
     --accent-color-light-orange: rgb(253, 234, 220);
+    --rating-background-light-orange: rgb(250, 202, 172);
     --darkgrey: rgb(54, 53, 52);
     --white: rgb(255,255,255);
 }

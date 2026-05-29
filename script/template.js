@@ -19,16 +19,18 @@ function getDishTemplate(indexDish) {
 }
 
 function getCartTemplate(indexDish) {
-    return `<p>${dishes[indexDish].amount} x ${dishes[indexDish].name}</p>
-                <div class="cart_item_footer">
-                    <div class="cart_item_quantity">
-                        <button onclick="deleteFromCart(${indexDish})">delete</button>
-                        <button onclick="removeOneItemFromCart(${indexDish})">Minus</button>
-                        <p>${dishes[indexDish].amount}</p>
-                        <button onclick="addOneItemToCart(${indexDish})">Plus</button>
+    return `<div class="cart_item">
+                <p class="cart_item_descr">${dishes[indexDish].amount} x ${dishes[indexDish].name}</p>
+                    <div class="cart_item_footer">
+                        <div class="cart_item_quantity">
+                                <button class="amount_button trash_icon" onclick="deleteFromCart(${indexDish})"><img src="assets/icons/trashcan.svg" alt="Mülleimer Icon"></button>
+                                <button class="minus_button amount_button" onclick="removeOneItemFromCart(${indexDish})"></button>
+                                <p>${dishes[indexDish].amount}</p>
+                                <button class="plus_button amount_button" onclick="addOneItemToCart(${indexDish})"></button>
+                        </div>
+                        <p class="cart_item_price" id="calculated_price_${indexDish}"></p>
                     </div>
-                    <p class="cart_item_price" id="calculated_price_${indexDish}"></p>
-                </div>`
+            </div>`
 }
 
 function getCartTotalTemplate() {

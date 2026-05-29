@@ -34,6 +34,7 @@ main {
     display: flex;
     width: 100%;
     color: var(--darkgrey);
+    padding: 60px 0 100px 0;
 }
 
 nav {
@@ -70,9 +71,6 @@ footer {
     gap: 70px;
     height: 130px;
 }
-
-
-
 
 .footer_copyright {
     display: flex;
@@ -115,7 +113,7 @@ footer {
     justify-content: center;
     align-items: center;
     gap: 5px;
-    background-color: var(--accent-color-light-orange);
+    background-color: var(--rating-background-light-orange);
     font-size: 1.25rem;
     padding: 0 5px;
     line-height: 1;
