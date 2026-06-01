@@ -45,5 +45,5 @@ function getCartTotalTemplate() {
                 <p>Total</p>
                 <p id="total"></p>
             </div>
-            <button class="buy_button">Buy now (${formatToCurrency(calculateTotal())})</button>`
+            <button onclick="openDialog()" class="buy_button">Buy now (${formatToCurrency(calculateTotal())})</button>`
 }

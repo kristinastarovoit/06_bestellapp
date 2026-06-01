@@ -122,3 +122,30 @@ function formatToCurrency(price) {
         currency: "EUR"
     });
 }
+
+function openDialog() {
+    const dialogRef = document.getElementById('order_dialog');
+    dialogRef.showModal();
+    dialogRef.classList.add('opened');
+    setTimeout('closeDialog()', 2000)
+}
+
+function closeDialog() {
+    const dialogRef = document.getElementById('order_dialog');
+    dialogRef.close();
+    dialogRef.classList.remove('opened');
+    resetAllAmounts();
+}
+
+function emptyCart() {
+    for (indexDish = 0; indexDish < dishes.length; indexDish++) {
+        dishes[indexDish].amount = 0;
+    }
+}
+
+function resetAllAmounts() {
+    emptyCart();
+    checkIfCartIsEmpty();
+    renderCart();
+    renderallDishes();
+}

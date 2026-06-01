@@ -16,7 +16,6 @@
     padding-left: 120px;
 }
 
-
 .pizza_size {
     font-size: 2.5rem;
     font-weight: 400;
@@ -222,9 +221,7 @@ hr {
     width: 320px;
 }
 
-.d_none {
-    display: none;
-}
+
 
 .footer_link {
     font-size: 1.125rem;
@@ -273,4 +270,65 @@ hr {
     .cart_item_content {
         scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
     }
+}
+
+#order_dialog {
+    width: 415px;
+    margin: auto;
+    padding: 32px;
+    border-color: transparent;
+    border-radius: 30px;
+    background-color: var(--darkgrey);
+}
+
+.order_dialog_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.order_confirmed,
+.order_on_the_way {
+    color: var(--accent-color-light-orange);
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.order_confirmed {
+    font-size: 2.6rem;
+}
+
+.order_on_the_way {
+    font-size: 1.8rem;
+}
+
+.dialog_img_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 26px;
+}
+
+.close_x {
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+#order_dialog.opened::backdrop {
+    background-color: var(--dialog-backdrop);
+    opacity: 0.4;
+    transition: all 550ms ease-in;
+}
+
+#order_dialog::backdrop {
+    background-color: var(--dialog-backdrop);
+    opacity: 0;
+    transition: all 550ms ease-in;
+}
+
+.d_none {
+    display: none;
 }

@@ -18,7 +18,8 @@
 <body onload="init()">
     <header>
         <nav>
-            <img src="assets/icons/bestellapp_logo.svg">
+            <img src="assets/icons/bestellapp_logo.svg" alt="BestellApp Logo">
+            <img src="assets/icons/menu.svg" alt="Burgermenü">
         </nav>
         <img src="assets/img/hero_img.jpg" alt="Verschiedene Lieferdienstgerichte">
         <div class="restaurant_header">
@@ -37,6 +38,16 @@
 
     <main>
         <section class="main_content">
+            <dialog id="order_dialog">
+                <div class="order_dialog_wrapper">
+                    <img onclick="closeDialog()" class="close_x" src="assets/icons/close.svg">
+                    <div class="dialog_img_text">
+                        <img src="assets/img/order_truck.svg" alt="Lieferauto">
+                        <p class="order_confirmed">Order confirmed!</p>
+                        <p class="order_on_the_way">Your food is on the way!</p>
+                    </div>
+                </div>
+            </dialog>
 
             <div class="category_slider_bar">
                 <a href="#burger_content_link">Burger</a>
