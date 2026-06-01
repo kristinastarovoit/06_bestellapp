@@ -1,0 +1,130 @@
+.cart_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 440px;
+    height: 840px;
+    background-color: var(--darkgrey);
+    padding: 60px 30px;
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.cart_heading {
+    color: var(--accent-color-light-orange);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.empty_cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+}
+
+.empty_cart_text {
+    font-size: 1.5rem;
+    color: var(--accent-color-light-orange);
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.cart_item_content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 300px;
+    overflow-y: scroll;
+    padding-right: 10px;
+}
+
+.cart_item {
+    width: 100%;
+    color: var(--darkgrey);
+    background-color: var(--accent-color-light-orange);
+    border-radius: 20px;
+    padding: 12px;
+}
+
+.cart_item_footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart_item_price {
+    margin-left: 0;
+}
+
+.cart_item_quantity {
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.cart_item_descr,
+.cart_item_footer {
+    padding-left: 8px;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+}
+
+.cart_total_content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.price_row {
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: 1.25rem;
+}
+
+hr {
+    border: 2px solid var(--white);
+    width: 100%;
+    margin: 20px 0;
+}
+
+.buy_button {
+    background-color: var(--accent-color-orange);
+    border: transparent;
+    border-radius: 60px;
+    padding: 13px;
+    margin-top: 30px;
+    color: var(--white);
+    font-size: 2rem;
+    font-weight: 700;
+    width: 320px;
+}
+
+.plus_button::after {
+    content: "+";
+}
+
+.minus_button::after {
+    content: "−";
+}
+
+.amount_button {
+    border: transparent;
+    background-color: transparent;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--darkgrey);
+}
