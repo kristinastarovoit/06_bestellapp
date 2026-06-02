@@ -161,11 +161,31 @@ footer {
 .footer_mobile {
     background-color: var(--darkgrey);
     height: 78px;
-    border: 2px solid red;
     display: none;
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.footer_mobile_wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+@media screen and (min-width: 1400px) {
+    .desktop_nav {
+        padding: 40px max(calc(50vw - 700px), 120px);
+    }
+
+    main {
+        padding-right: max(calc(50vw - 700px), 120px);
+    }
+
+    .category_slider_bar {
+        padding-left: max(calc(50vw - 700px), 120px);
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -240,5 +260,9 @@ footer {
 
     .restaurant_description {
         font-size: 1.3rem;
+    }
+
+    .desktop_nav {
+        padding: 20px;
     }
 }

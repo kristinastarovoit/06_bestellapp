@@ -133,6 +133,12 @@ hr {
     color: var(--darkgrey);
 }
 
+@media screen and (min-width: 1400px) {
+    .cart-wrapper {
+        border-top-right-radius: 30px;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .cart_wrapper {
         position: fixed;
@@ -167,6 +173,7 @@ hr {
     .cart_wrapper {
         width: 90%;
     }
+
     .buy_button {
         max-width: 90%;
     }

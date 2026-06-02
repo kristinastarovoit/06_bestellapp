@@ -1,10 +1,10 @@
 function init() {
-    renderallDishes();
+    renderAllDishes();
     renderCart();
     checkIfCartIsEmpty();
 }
 
-function renderallDishes() {
+function renderAllDishes() {
     renderCategoryDishes('burger_content', "burger");
     renderCategoryDishes('pizza_content', "pizza");
     renderCategoryDishes('salad_content', "salad");
@@ -147,7 +147,7 @@ function resetAllAmounts() {
     emptyCart();
     checkIfCartIsEmpty();
     renderCart();
-    renderallDishes();
+    renderAllDishes();
 }
 
 function showCartMobile() {

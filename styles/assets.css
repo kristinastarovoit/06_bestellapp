@@ -226,6 +226,16 @@ button {
     display: none;
 }
 
+@media screen and (min-width: 1400px) {
+    .category_icon {
+        padding-left: max(calc(50vw - 700px), 120px);
+    }
+
+    .dish_category_content {
+        padding-left: max(calc(50vw - 700px), 120px);
+    }
+}
+
 @media screen and (max-width: 1366px) {
     .dish_content {
         width: 600px;
