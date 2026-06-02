@@ -1,7 +1,7 @@
 function getDishTemplate(indexDish) {
     return `<div class="dish_content">
                 <div class="dish_img_text">
-                    <img class="dish_img" src="assets/img/${dishes[indexDish].src}">
+                    <img class="dish_img" src="assets/img/${dishes[indexDish].src}" alt="${dishes[indexDish].name}">
                     <div id="dish_description_${indexDish}" class="dish_text">
                         <h3>${dishes[indexDish].name}</h3>
                         <p class="dish_description">${dishes[indexDish].description}</p>
@@ -19,10 +19,10 @@ function getCartTemplate(indexDish) {
                 <p class="cart_item_descr">${dishes[indexDish].amount} x ${dishes[indexDish].name}</p>
                     <div class="cart_item_footer">
                         <div class="cart_item_quantity">
-                                <button class="amount_button trash_icon" onclick="deleteFromCart(${indexDish})"><img src="assets/icons/trashcan.svg" alt="Mülleimer Icon"></button>
-                                <button class="minus_button amount_button" onclick="removeOneItemFromCart(${indexDish})"></button>
+                                <button class="amount_button trash_icon" aria-label="Gericht löschen" onclick="deleteFromCart(${indexDish})"><img src="assets/icons/trashcan.svg" alt="Mülleimer Icon"></button>
+                                <button class="minus_button amount_button" aria-label="Ein Gericht weniger" onclick="removeOneItemFromCart(${indexDish})"></button>
                                 <p>${dishes[indexDish].amount}</p>
-                                <button class="plus_button amount_button" onclick="addOneItemToCart(${indexDish})"></button>
+                                <button class="plus_button amount_button" aria-label="Ein Gericht mehr" onclick="addOneItemToCart(${indexDish})"></button>
                         </div>
                         <p class="cart_item_price" id="calculated_price_${indexDish}"></p>
                     </div>

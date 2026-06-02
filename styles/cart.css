@@ -158,6 +158,8 @@ hr {
         cursor: pointer;
         display: flex;
         align-self: flex-end;
+        background-color: transparent;
+        border: transparent;
     }
 
     .buy_button {

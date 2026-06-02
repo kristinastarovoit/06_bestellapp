@@ -117,7 +117,7 @@ function openDialog() {
     const dialogRef = document.getElementById('order_dialog');
     dialogRef.showModal();
     dialogRef.classList.add('opened');
-    setTimeout('closeDialog()', 2000)
+    setTimeout(closeDialog, 2000)
 }
 
 function closeDialog() {
@@ -125,7 +125,6 @@ function closeDialog() {
     dialogRef.close();
     dialogRef.classList.remove('opened');
     resetAllAmounts();
-    closeCartMobile();
 }
 
 function resetAllAmounts() {
@@ -138,7 +137,7 @@ function resetAllAmounts() {
 }
 
 function emptyCart() {
-    for (indexDish = 0; indexDish < dishes.length; indexDish++) {
+    for (let indexDish = 0; indexDish < dishes.length; indexDish++) {
         dishes[indexDish].amount = 0;
     }
 }

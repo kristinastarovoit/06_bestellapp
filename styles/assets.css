@@ -208,6 +208,8 @@ button {
 .close_x {
     align-self: flex-end;
     cursor: pointer;
+    background-color: transparent;
+    border: transparent;
 }
 
 #order_dialog.opened::backdrop {

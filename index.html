@@ -39,22 +39,22 @@
 
     <main>
         <section class="main_content">
-            <dialog id="order_dialog">
+            <dialog id="order_dialog" aria-labelledby="order_confirmed_text" aria-describedby="order_confirmed_descr">
                 <div class="order_dialog_wrapper">
-                    <img onclick="closeDialog()" class="close_x" src="assets/icons/close.svg">
+                    <button onclick="closeDialog()" class="close_x" aria-label="Fenster schließen"><img src="assets/icons/close.svg"></button>
                     <div class="dialog_img_text">
                         <img src="assets/img/order_truck.svg" alt="Lieferauto">
-                        <p class="order_confirmed">Order confirmed!</p>
-                        <p class="order_on_the_way">Your food is on the way!</p>
+                        <p class="order_confirmed" id="order_confirmed_text">Order confirmed!</p>
+                        <p class="order_on_the_way" id="order_confirmed_descr">Your food is on the way!</p>
                     </div>
                 </div>
             </dialog>
 
-            <div class="category_slider_bar">
+            <nav class="category_slider_bar" aria-label="Gericht-Kategorien">
                 <a href="#burger_content_link">Burger</a>
                 <a href="#pizza_content_link">Pizza</a>
                 <a href="#salad_content_link">Salad</a>
-            </div>
+            </nav>
             <div class="orange_beam" id="burger_content_link">
                 <img class="category_icon" src="assets/icons/burger_icon.png" alt="Burger Icon">
                 <h2>Burger <span class="sandwiches">& Sandwiches</span></h2>
@@ -74,7 +74,7 @@
         </section>
         <section class="cart_content">
             <div class="cart_wrapper" id="cart_wrapper">
-                <img onclick="closeCartMobile()" src="assets/icons/close.svg" class="cart_close_button">
+                <button onclick="closeCartMobile()" class="cart_close_button"><img  src="assets/icons/close.svg" aria-label="Warenkorb schließen"></button>
                 <p class="cart_heading">Your Basket</p>
                 <div class="empty_cart" id="empty_cart">
                     <p class="empty_cart_text">Nothing here yet. <br> Go ahead and choose something delicious!</p>
@@ -98,10 +98,8 @@
             <a class="mobile_link"><img src="assets/icons/Home.svg" alt="Home Icon"></a>
             <a class="mobile_link"><img src="assets/icons/Profile.svg" alt="Profil Icon"></a>
             <a class="mobile_link"><img src="assets/icons/bestellapp_icon_img.svg" alt="BestellApp Icon"></a>
-            <a onclick="showCartMobile()" class="mobile_link mobile_cart_icon"><div id="mobile_cart_amount_wrapper" class="mobile_cart_amount_wrapper d_none"><p id="mobile_cart_amount_number" class="orange_font"></p></div><img id="mobile_cart_icon" src="assets/icons/shopping_cart.svg"
-                    alt="Warenkorb"></a>
-            <!-- <a onclick="showCartMobile()" id="mobile_cart_icon" class="mobile_link d_none"><img src="assets/icons/orange_cart.svg"
-                    alt="Warenkorb"></a> -->
+            <button onclick="showCartMobile()" class="mobile_link mobile_cart_icon" aria-label="Warenkorb öffnen"><div id="mobile_cart_amount_wrapper" class="mobile_cart_amount_wrapper d_none"><p id="mobile_cart_amount_number" class="orange_font"></p></div><img id="mobile_cart_icon" src="assets/icons/shopping_cart.svg"
+                    alt="Warenkorb"></button>
         </div>
     </nav>
 </body>

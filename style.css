@@ -173,6 +173,13 @@ footer {
 
 .mobile_cart_icon {
     position: relative;
+    background-color: transparent;
+    border: 2px solid transparent;
+}
+
+.mobile_cart_icon:active {
+    border-radius: 5px;
+    border-color: var(--accent-color-orange);
 }
 
 .mobile_cart_amount_wrapper {
