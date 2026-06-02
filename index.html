@@ -18,9 +18,9 @@
 
 <body onload="init()">
     <header>
-        <nav>
+        <nav class="desktop_nav">
             <img src="assets/icons/bestellapp_logo.svg" alt="BestellApp Logo">
-            <img src="assets/icons/menu.svg" alt="Burgermenü">
+            <img class="burger_menu" src="assets/icons/menu.svg" alt="Burgermenü">
         </nav>
         <img src="assets/img/hero_img.jpg" alt="Verschiedene Lieferdienstgerichte">
         <div class="restaurant_header">
@@ -57,8 +57,9 @@
             </div>
             <div class="orange_beam" id="burger_content_link">
                 <img class="category_icon" src="assets/icons/burger_icon.png" alt="Burger Icon">
-                <h2>Burger & Sandwiches</h2>
+                <h2>Burger <span class="sandwiches">& Sandwiches</span></h2>
             </div>
+
             <div id="burger_content" class="dish_category_content"></div>
             <div class="orange_beam" id="pizza_content_link">
                 <img class="category_icon" src="assets/icons/pizza_icon.png" alt="Pizza Icon">
@@ -73,6 +74,7 @@
         </section>
         <section class="cart_content">
             <div class="cart_wrapper" id="cart_wrapper">
+                <img onclick="closeCartMobile()" src="assets/icons/close.svg" class="cart_close_button">
                 <p class="cart_heading">Your Basket</p>
                 <div class="empty_cart" id="empty_cart">
                     <p class="empty_cart_text">Nothing here yet. <br> Go ahead and choose something delicious!</p>
@@ -91,7 +93,12 @@
         <a class="footer_link">Imprint</a>
         <a class="footer_link">Cookie Preferences</a>
     </footer>
-
+    <nav class="footer_mobile">
+        <a class="mobile_link"><img src="assets/icons/Home.svg" alt="Home Icon"></a>
+        <a class="mobile_link"><img src="assets/icons/Profile.svg" alt="Profil Icon"></a>
+        <a class="mobile_link"><img src="assets/icons/bestellapp_icon_img.svg" alt="BestellApp Icon"></a>
+        <a onclick="showCartMobile()" class="mobile_link"><img src="assets/icons/shopping_cart.svg" alt="Warenkorb"></a>
+    </nav>
 </body>
 
 </html>

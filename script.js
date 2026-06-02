@@ -149,3 +149,11 @@ function resetAllAmounts() {
     renderCart();
     renderallDishes();
 }
+
+function showCartMobile() {
+    document.getElementById('cart_wrapper').style.display = 'flex';
+}
+
+function closeCartMobile() {
+    document.getElementById('cart_wrapper').style.display = 'none';
+}

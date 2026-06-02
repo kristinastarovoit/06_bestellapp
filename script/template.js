@@ -1,19 +1,17 @@
 function getDishTemplate(indexDish) {
     return `<div class="dish_content">
-            <div class="dish_img_text">
-                <img class="dish_img" src="assets/img/${dishes[indexDish].src}">
-                <div id="dish_description_${indexDish}" class="dish_text">
-                    <h3>${dishes[indexDish].name}</h3>
-                    <p class="dish_description">${dishes[indexDish].description}</p>
+                <div class="dish_img_text">
+                    <img class="dish_img" src="assets/img/${dishes[indexDish].src}">
+                    <div id="dish_description_${indexDish}" class="dish_text">
+                        <h3>${dishes[indexDish].name}</h3>
+                        <p class="dish_description">${dishes[indexDish].description}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="dish_price_cart">
-                <p class="dish_price">${formatToCurrency(dishes[indexDish].price)}</p>
-                <button class="basket_button" id="basket_button_${indexDish}" onclick="addOneItemToCart(${indexDish})">Add to basket</button>
-            </div>
-            </div>
-            <div>
-        </div>`
+                <div class="dish_price_cart">
+                    <p class="dish_price">${formatToCurrency(dishes[indexDish].price)}</p>
+                    <button class="basket_button" id="basket_button_${indexDish}" onclick="addOneItemToCart(${indexDish})">Add to basket</button>
+                </div>
+            </div>`
 }
 
 function getCartTemplate(indexDish) {
