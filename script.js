@@ -2,6 +2,7 @@ function init() {
     renderAllDishes();
     renderCart();
     updateCartState();
+    showMobileCartAmount();
 }
 
 function renderAllDishes() {
@@ -46,6 +47,8 @@ function addOneItemToCart(indexDish) {
     toggleCartButtonAmount(indexDish);
     updateCartState();
     renderCart();
+    toggleHighlightedMobileCart();
+    showMobileCartAmount();
 }
 
 function removeOneItemFromCart(indexDish) {
@@ -57,6 +60,8 @@ function removeOneItemFromCart(indexDish) {
     toggleCartButtonAmount(indexDish);
     updateCartState();
     renderCart();
+    toggleHighlightedMobileCart();
+    showMobileCartAmount();
 }
 
 function deleteFromCart(indexDish) {
@@ -64,6 +69,8 @@ function deleteFromCart(indexDish) {
     toggleCartButtonAmount(indexDish);
     updateCartState();
     renderCart();
+    toggleHighlightedMobileCart();
+    showMobileCartAmount();
 }
 
 function calculateItemSum(indexDish) {
@@ -118,6 +125,7 @@ function closeDialog() {
     dialogRef.close();
     dialogRef.classList.remove('opened');
     resetAllAmounts();
+    closeCartMobile();
 }
 
 function resetAllAmounts() {
@@ -125,6 +133,8 @@ function resetAllAmounts() {
     updateCartState();
     renderCart();
     renderAllDishes();
+    toggleHighlightedMobileCart();
+    showMobileCartAmount();
 }
 
 function emptyCart() {
@@ -157,3 +167,28 @@ function showCartMobile() {
 function closeCartMobile() {
     document.getElementById('cart_wrapper').style.display = 'none';
 }
+
+function toggleHighlightedMobileCart() {
+    const mobileCart = document.getElementById('mobile_cart_icon');
+    if (dishes.every(isAmountZero) == false) {
+        mobileCart.src = 'assets/icons/orange_cart.svg';
+    } else {
+        mobileCart.src = 'assets/icons/shopping_cart.svg';
+    }
+}
+
+function showMobileCartAmount() {
+    const cartAmountRef = document.getElementById('mobile_cart_amount_number');
+    const mobileAmountDisplay = document.getElementById('mobile_cart_amount_wrapper');
+    let totalCartAmount = 0;
+    for (let indexDish = 0; indexDish < dishes.length; indexDish++) {
+        totalCartAmount += dishes[indexDish].amount;
+    }
+    if (totalCartAmount === 0) {
+        mobileAmountDisplay.classList.add('d_none');
+    } else {
+        mobileAmountDisplay.classList.remove('d_none');
+        cartAmountRef.innerText = totalCartAmount;
+    }
+}
+
