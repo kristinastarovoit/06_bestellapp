@@ -142,12 +142,12 @@ hr {
 @media screen and (max-width: 1024px) {
     .cart_wrapper {
         position: fixed;
-        top: 50%;
+        top: 45%;
         left: 50%;
         transform: translate(-50%, -50%);
         border-radius: 30px;
         display: none;
-        max-height: calc(100vh - 180px);
+        max-height: calc(100vh - 150px);
     }
 
     .cart_heading {

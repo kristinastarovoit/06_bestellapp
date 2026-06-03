@@ -38,8 +38,8 @@ function renderCartTotal() {
     cartTotalRef.innerHTML = getCartTotalTemplate();
     const subtotalRef = document.getElementById('subtotal');
     const totalRef = document.getElementById('total');
-    subtotalRef.innerText = formatToCurrency(calculateSubtotal());
-    totalRef.innerText = formatToCurrency(calculateTotal());
+    subtotalRef.innerText = formatToCurrency(calculateSubtotalSum());
+    totalRef.innerText = formatToCurrency(calculateTotalSum());
 }
 
 function addOneItemToCart(indexDish) {
@@ -47,6 +47,7 @@ function addOneItemToCart(indexDish) {
     toggleCartButtonAmount(indexDish);
     updateCartState();
     renderCart();
+    showCartMobile();
     toggleHighlightedMobileCart();
     showMobileCartAmount();
 }
@@ -56,7 +57,6 @@ function removeOneItemFromCart(indexDish) {
     if (dishes[indexDish].amount < 0) {
         dishes[indexDish].amount = 0;
     }
-    console.log(dishes[indexDish].amount);
     toggleCartButtonAmount(indexDish);
     updateCartState();
     renderCart();
@@ -79,7 +79,7 @@ function calculateItemSum(indexDish) {
     priceItemRef.innerText = formatToCurrency(newCalculatedPrice)
 }
 
-function calculateSubtotal() {
+function calculateSubtotalSum() {
     let subtotal = 0;
     for (let indexDish = 0; indexDish < dishes.length; indexDish++) {
         subtotal += (dishes[indexDish].amount * dishes[indexDish].price);
@@ -87,8 +87,8 @@ function calculateSubtotal() {
     return subtotal;
 }
 
-function calculateTotal() {
-    let totalSum = calculateSubtotal() + 4.99;
+function calculateTotalSum() {
+    let totalSum = calculateSubtotalSum() + 4.99;
     return totalSum;
 }
 
@@ -115,6 +115,8 @@ function toggleCartButtonAmount(indexDish) {
 
 function openDialog() {
     const dialogRef = document.getElementById('order_dialog');
+    resetAllAmounts();
+    closeCartMobile();
     dialogRef.showModal();
     dialogRef.classList.add('opened');
     setTimeout(closeDialog, 2000)
@@ -124,7 +126,6 @@ function closeDialog() {
     const dialogRef = document.getElementById('order_dialog');
     dialogRef.close();
     dialogRef.classList.remove('opened');
-    resetAllAmounts();
 }
 
 function resetAllAmounts() {
