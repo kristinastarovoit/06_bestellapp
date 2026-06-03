@@ -47,7 +47,6 @@ function addOneItemToCart(indexDish) {
     toggleCartButtonAmount(indexDish);
     updateCartState();
     renderCart();
-    showCartMobile();
     toggleHighlightedMobileCart();
     showMobileCartAmount();
 }
@@ -165,7 +164,9 @@ function showCartMobile() {
 }
 
 function closeCartMobile() {
-    document.getElementById('cart_wrapper').style.display = 'none';
+    if (window.innerWidth <= 1024) {
+        document.getElementById('cart_wrapper').style.display = 'none';
+    }
 }
 
 function toggleHighlightedMobileCart() {

@@ -150,6 +150,8 @@ hr {
         max-height: calc(100vh - 150px);
     }
 
+
+
     .cart_heading {
         font-size: 1.7rem;
     }
@@ -174,9 +176,14 @@ hr {
 @media screen and (max-width: 480px) {
     .cart_wrapper {
         width: 90%;
+        padding: 40px 30px;
     }
 
     .buy_button {
         max-width: 90%;
+    }
+
+    .price_row {
+        font-size: 1.1rem;
     }
 }
